@@ -4,7 +4,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="506.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Controller">
+<AnchorPane prefHeight="506.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.MainFrameController">
    <children>
       <Button fx:id="btnExit" layoutX="285.0" layoutY="459.0" mnemonicParsing="false" onAction="#onBtnExit" prefHeight="26.0" prefWidth="116.0" text="Выход" />
       <Button fx:id="btnCreate" layoutX="14.0" layoutY="380.0" mnemonicParsing="false" onAction="#onBtnCreate" prefHeight="26.0" prefWidth="206.0" text="Спроектировать продукт" />
