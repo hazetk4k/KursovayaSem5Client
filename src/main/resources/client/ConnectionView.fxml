@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="344.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Controller">
+   <children>
+      <Button fx:id="btnConnect" layoutX="215.0" layoutY="54.0" mnemonicParsing="false" onAction="#onBtnConnect" prefHeight="26.0" prefWidth="104.0" text="Подключиться" textFill="#211f1f" />
+      <TextField fx:id="textPort" layoutX="14.0" layoutY="76.0" prefHeight="26.0" prefWidth="165.0" promptText="3311" text="3311" />
+      <TextField fx:id="textIP" editable="false" layoutX="14.0" layoutY="32.0" prefHeight="26.0" prefWidth="166.0" promptText="127.0.0.1" text="127.0.0.1" />
+      <Label layoutX="15.0" layoutY="14.0" text="IP" />
+      <Label layoutX="14.0" layoutY="58.0" text="Port" />
+      <Separator layoutX="192.0" layoutY="-11.0" orientation="VERTICAL" prefHeight="146.0" prefWidth="10.0" />
+   </children>
+</AnchorPane>
