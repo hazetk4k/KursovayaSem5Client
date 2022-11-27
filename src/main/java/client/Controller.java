@@ -14,7 +14,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Objects;
 
-public class Controller {
+public class Controller{
 
     public Button btnLogIn;
 
@@ -32,23 +32,7 @@ public class Controller {
     @FXML
     public Label labelPassword;
 
-    public Button btnDisconnect;
-
     public Button btnExit;
-    @FXML
-    public TableView productTable;
-    @FXML
-    public TableColumn tblID;
-    @FXML
-    public TableColumn tblName;
-    @FXML
-    public TableColumn tblFuel;
-    @FXML
-    public TableColumn tblCarcase;
-    @FXML
-    public TableColumn tblBattery;
-    @FXML
-    public TableColumn tblChassis;
     public Button btnCreate;
     public Button btnDelete;
     public Button btnAllQuality;
@@ -57,18 +41,28 @@ public class Controller {
     public Button btnSaveTxt;
     public Button btnLoadTxt;
     public Button btnRefresh;
-
-    Socket sock = null;
-
     @FXML
+    public ComboBox textFuel;
+    @FXML
+    public ComboBox textBattery;
+    @FXML
+    public ComboBox textCarcase;
+    @FXML
+    public ComboBox textChassis;
+
+    public Button btnSubmit;
+    @FXML
+    public TextField textName;
+    public Button btnBack;
+
+
     public void onBtnLogIn(ActionEvent actionEvent) {
-        nextWindow("MainFrame", btnLogIn, "Главный менеджер контроля качества");
+        nextWindow("MainFrame", btnLogIn, "Главное окно");
     }
 
-    @FXML
     public void onBtnConnect(ActionEvent actionEvent) {
         try {
-            sock = new Socket(InetAddress.getByName(textIP.getText()), Integer.parseInt(textPort.getText()));
+            MySocket.setSock(new Socket(InetAddress.getByName(textIP.getText()), Integer.parseInt(textPort.getText())));
             nextWindow("AuthView", btnConnect, "Авторизация");
         } catch (IOException e) {
             textPort.setText("");
@@ -90,7 +84,7 @@ public class Controller {
         stage.setOnCloseRequest(windowEvent -> {
             PrintWriter out = null;
             try {
-                out = new PrintWriter(sock.getOutputStream(), true);
+                out = new PrintWriter(MySocket.INSTANCE.getSock().getOutputStream(), true);
                 out.println("Disconnect");
                 stage.close();
             } catch (IOException e) {
@@ -100,23 +94,41 @@ public class Controller {
         stage.show();
     }
 
-    @FXML
-    public void onBtnDisconnect(ActionEvent actionEvent) {
-        try {
-            if (sock == null) {
-                return;
-            }
-            try {
-                PrintWriter out = new PrintWriter(sock.getOutputStream(), true);
-                out.println("Disconnect\n");
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        } catch (NumberFormatException ignored) {
-        }
+    public void onBtnExit(ActionEvent actionEvent) {
+        nextWindow("AuthView", btnExit, "Авторизация");
     }
 
-    public void onBtnExit(ActionEvent actionEvent) {
-        //
+    public void onBtnRefresh(ActionEvent actionEvent) {
+    }
+
+    public void onBtnCreate(ActionEvent actionEvent) {
+        nextWindow("CreatingView", btnCreate, "Новый продукт");
+    }
+
+    public void onBtnDelete(ActionEvent actionEvent) {
+    }
+
+    public void onBtnAllQuality(ActionEvent actionEvent) {
+    }
+
+    public void onBtnProductQuality(ActionEvent actionEvent) {
+    }
+
+    public void onBtnEdit(ActionEvent actionEvent) {
+    }
+
+    public void onBtnSaveTxt(ActionEvent actionEvent) {
+    }
+
+    public void OnBtnLoadTxt(ActionEvent actionEvent) {
+    }
+
+
+    public void onBtnSubmit(ActionEvent actionEvent) {
+        nextWindow("MainFrame", btnSubmit, "Главное окно");
+    }
+
+    public void onBtnBack(ActionEvent actionEvent) {
+        nextWindow("MainFrame", btnBack, "Главное окно");
     }
 }
