@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="506.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.MainFrameController">
+<AnchorPane prefHeight="555.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.MainFrameController">
    <children>
-      <Button fx:id="btnExit" layoutX="285.0" layoutY="459.0" mnemonicParsing="false" onAction="#onBtnExit" prefHeight="26.0" prefWidth="116.0" text="Выход" />
+      <Button fx:id="btnExit" layoutX="266.0" layoutY="514.0" mnemonicParsing="false" onAction="#onBtnExit" prefHeight="26.0" prefWidth="148.0" text="Выход" />
       <Button fx:id="btnCreate" layoutX="14.0" layoutY="380.0" mnemonicParsing="false" onAction="#onBtnCreate" prefHeight="26.0" prefWidth="206.0" text="Спроектировать продукт" />
       <Button fx:id="btnDelete" layoutX="14.0" layoutY="420.0" mnemonicParsing="false" onAction="#onBtnDelete" prefHeight="26.0" prefWidth="206.0" text="Удалить продукт" />
       <Button fx:id="btnAllQuality" layoutX="465.0" layoutY="380.0" mnemonicParsing="false" onAction="#onBtnAllQuality" prefHeight="26.0" prefWidth="206.0" text="Общая оценка качества" />
@@ -15,6 +17,23 @@
       <Button fx:id="btnSaveTxt" layoutX="465.0" layoutY="420.0" mnemonicParsing="false" onAction="#onBtnSaveTxt" prefHeight="26.0" prefWidth="206.0" text="Сохранить данные продуктов" />
       <Button fx:id="btnLoadTxt" layoutX="465.0" layoutY="459.0" mnemonicParsing="false" onAction="#OnBtnLoadTxt" prefHeight="26.0" prefWidth="206.0" text="Загрузить посленее сохранение" />
       <Button fx:id="btnRefresh" layoutX="14.0" layoutY="340.0" mnemonicParsing="false" onAction="#onBtnRefresh" prefHeight="26.0" prefWidth="206.0" text="Обновить таблицу продуктов" />
-      <ListView fx:id="productArea" layoutX="12.0" layoutY="15.0" prefHeight="318.0" prefWidth="658.0" />
+      <TableView fx:id="productTable" layoutX="17.0" layoutY="14.0" prefHeight="314.0" prefWidth="655.0">
+        <columns>
+          <TableColumn fx:id="productID" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="productName" prefWidth="99.20001220703125" text="имя модели" />
+            <TableColumn fx:id="productFuel" prefWidth="128.0000762939453" text="Топливная система" />
+            <TableColumn fx:id="productBattery" prefWidth="116.0" text="Аккумулятор" />
+            <TableColumn fx:id="productCarcase" minWidth="0.0" prefWidth="118.40008544921875" text="Кузов" />
+            <TableColumn fx:id="productChassis" minWidth="8.00006103515625" prefWidth="119.19989013671875" text="Шасси" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnToFuel" layoutX="269.0" layoutY="340.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" text="Топливные системы" />
+      <Button fx:id="btnToBattery" layoutX="269.0" layoutY="380.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" text="Аккумуляторы" />
+      <Button fx:id="btnToCarcase" layoutX="269.0" layoutY="420.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" text="Кузова" />
+      <Button fx:id="btnToChassis" layoutX="269.0" layoutY="460.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" text="Шасси" />
+      <Separator layoutX="-8.0" layoutY="327.0" prefHeight="2.0" prefWidth="695.0" />
+      <Separator layoutY="499.0" prefHeight="3.0" prefWidth="688.0" />
+      <Separator layoutX="242.0" layoutY="327.0" orientation="VERTICAL" prefHeight="174.0" prefWidth="6.0" />
+      <Separator layoutX="444.0" layoutY="327.0" orientation="VERTICAL" prefHeight="174.0" prefWidth="6.0" />
    </children>
 </AnchorPane>
