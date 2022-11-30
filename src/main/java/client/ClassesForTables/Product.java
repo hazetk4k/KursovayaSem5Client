@@ -10,7 +10,7 @@ public class Product {
 
     public String modelCarcase;
 
-    public String modelChassis;
+    public String modelWheels;
 
     public Product(int modelID, String modelName, String modelFuel, String modelBattery, String modelCarcase, String modelChassis){
         this.modelID = modelID;
@@ -18,7 +18,7 @@ public class Product {
         this.modelFuel = modelFuel;
         this.modelBattery = modelBattery;
         this.modelCarcase = modelCarcase;
-        this.modelChassis = modelChassis;
+        this.modelWheels = modelChassis;
 
     }
 
@@ -62,11 +62,11 @@ public class Product {
         this.modelCarcase = modelCarcase;
     }
 
-    public String getModelChassis() {
-        return modelChassis;
+    public String getModelWheels() {
+        return modelWheels;
     }
 
-    public void setModelChassis(String modelChassis) {
-        this.modelChassis = modelChassis;
+    public void setModelWheels(String modelWheels) {
+        this.modelWheels = modelWheels;
     }
 }

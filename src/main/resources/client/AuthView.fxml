@@ -11,7 +11,7 @@
       <Button fx:id="btnLogIn" layoutX="57.0" layoutY="160.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" onAction="#onBtnLogIn" text="Авторизоваться" />
       <Label fx:id="labelLogin" layoutX="37.0" layoutY="24.0" text="Логин" />
       <Label fx:id="labelPassword" layoutX="37.0" layoutY="89.0" text="Пароль" />
-      <TextField fx:id="textLogin" layoutX="37.0" layoutY="42.0" />
+      <TextField fx:id="textLogin" layoutX="37.0" layoutY="42.0"/>
       <TextField fx:id="textPassword" layoutX="36.0" layoutY="107.0" prefHeight="26.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

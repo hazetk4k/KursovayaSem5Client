@@ -1,16 +1,16 @@
 package client.ClassesForTables;
 
-public class Battery {
+public class Wheels {
     public String model_name;
-    public float capacity;
-    public float voltage;
+    public float pressure;
+    public float width;
     public int mileage;
     public int price;
 
-    public Battery(String model_name, float capacity, float voltage, int mileage, int price) {
+    public Wheels(String model_name, float pressure, float width, int mileage, int price) {
         this.model_name = model_name;
-        this.capacity = capacity;
-        this.voltage = voltage;
+        this.pressure = pressure;
+        this.width = width;
         this.mileage = mileage;
         this.price = price;
     }
@@ -23,20 +23,20 @@ public class Battery {
         this.model_name = model_name;
     }
 
-    public float getCapacity() {
-        return capacity;
+    public float getPressure() {
+        return pressure;
     }
 
-    public void setCapacity(float capacity) {
-        this.capacity = capacity;
+    public void setPressure(float pressure) {
+        this.pressure = pressure;
     }
 
-    public float getVoltage() {
-        return voltage;
+    public float getWidth() {
+        return width;
     }
 
-    public void setVoltage(float voltage) {
-        this.voltage = voltage;
+    public void setWidth(float width) {
+        this.width = width;
     }
 
     public int getMileage() {

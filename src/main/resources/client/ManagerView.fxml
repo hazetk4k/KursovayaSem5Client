@@ -15,14 +15,13 @@
             <TableColumn fx:id="productFuel" prefWidth="128.0000762939453" text="Топливная система" />
             <TableColumn fx:id="productBattery" prefWidth="116.0" text="Аккумулятор" />
             <TableColumn fx:id="productCarcase" minWidth="0.0" prefWidth="118.40008544921875" text="Кузов" />
-            <TableColumn fx:id="productChassis" minWidth="8.00006103515625" prefWidth="119.19989013671875" text="Шасси" />
+            <TableColumn fx:id="productWheels" minWidth="8.00006103515625" prefWidth="119.19989013671875" text="Колеса" />
          </columns>
       </TableView>
-      <Button fx:id="btnRefresh" layoutX="247.0" layoutY="350.0" mnemonicParsing="false" onAction="#onBtnRefresh" prefHeight="26.0" prefWidth="188.0" text="Обновить таблицу продуктов" />
       <Button fx:id="btnToFuel" layoutX="13.0" layoutY="350.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Топливные системы" />
       <Button fx:id="btnToBattery" layoutX="13.0" layoutY="390.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Аккумуляторы" />
       <Button fx:id="btnToCarcase" layoutX="13.0" layoutY="430.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Кузова" />
-      <Button fx:id="btnToChassis" layoutX="13.0" layoutY="469.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Шасси" />
+      <Button fx:id="btnToWheels" layoutX="13.0" layoutY="469.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Колеса" />
       <Button fx:id="btnExit" layoutX="264.0" layoutY="469.0" mnemonicParsing="false" onAction="#onBtnExit" prefHeight="26.0" prefWidth="148.0" text="Выход" />
       <Button fx:id="btnSaveTxt" layoutX="461.0" layoutY="430.0" mnemonicParsing="false" onAction="#onBtnSaveTxt" prefHeight="26.0" prefWidth="206.0" text="Сохранить данные продуктов" />
       <Button fx:id="btnLoadTxt" layoutX="461.0" layoutY="469.0" mnemonicParsing="false" onAction="#OnBtnLoadTxt" prefHeight="26.0" prefWidth="206.0" text="Загрузить посленее сохранение" />
