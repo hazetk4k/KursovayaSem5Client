@@ -39,7 +39,7 @@ public class MainFrameController extends BaseController implements Initializable
     public Button btnToBattery;
     public Button btnToCarcase;
     public Button btnToWheels;
-
+    ObservableList<Product> productList = FXCollections.observableArrayList();
 
     public void onBtnRefresh(ActionEvent actionEvent) {
         nextWindow("RegView", btnRefresh, "Регистрация нвого пользователя");
@@ -61,33 +61,24 @@ public class MainFrameController extends BaseController implements Initializable
     }
 
     public void onBtnDelete(ActionEvent actionEvent) {
-    }
-
-    public void onBtnCreate(ActionEvent actionEvent) {
-        nextWindow("CreatingView", btnCreate, "Добавление новой модели");
-    }
-
-    public void onBtnExit(ActionEvent actionEvent) {
-        nextWindow("AuthView", btnExit, "Авторизация");
-    }
-
-    ObservableList<Product> productList = FXCollections.observableArrayList();
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        productID.setCellValueFactory(new PropertyValueFactory<Product, Integer>("modelID"));
-        productName.setCellValueFactory(new PropertyValueFactory<Product, String>("modelName"));
-        productFuel.setCellValueFactory(new PropertyValueFactory<Product, String>("modelFuel"));
-        productBattery.setCellValueFactory(new PropertyValueFactory<Product, String>("modelBattery"));
-        productCarcase.setCellValueFactory(new PropertyValueFactory<Product, String>("modelCarcase"));
-        productWheels.setCellValueFactory(new PropertyValueFactory<Product, String>("modelWheels"));
+        String modelDeleteId;
+        modelDeleteId = String.valueOf(productTable.getSelectionModel().getSelectedItem().modelID);
         PrintWriter out = null;
+        try {
+            out = new PrintWriter(MySocket.INSTANCE.getSock().getOutputStream(), true);
+            out.println("Удаление" + "; " + modelDeleteId);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        productTable.getItems().clear();
+        updateTable();
+    }
+
+    public void updateTable() {
         BufferedReader in = null;
         String line;
         try {
-            out = new PrintWriter(MySocket.INSTANCE.getSock().getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(MySocket.INSTANCE.getSock().getInputStream()));
-            out.println("Продукты");
             line = in.readLine();
             if (!Objects.equals(line, "Нет данных")) {
                 String[] models = line.split("///"); ///models = {поля, поля, поля}
@@ -102,6 +93,40 @@ public class MainFrameController extends BaseController implements Initializable
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    public void onBtnCreate(ActionEvent actionEvent) {
+        nextWindow("CreatingView", btnCreate, "Добавление новой модели");
+    }
+
+    public void onBtnExit(ActionEvent actionEvent) {
+        nextWindow("AuthView", btnExit, "Авторизация");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        productID.setCellValueFactory(new PropertyValueFactory<>("modelID"));
+        productName.setCellValueFactory(new PropertyValueFactory<>("modelName"));
+        productFuel.setCellValueFactory(new PropertyValueFactory<>("modelFuel"));
+        productBattery.setCellValueFactory(new PropertyValueFactory<>("modelBattery"));
+        productCarcase.setCellValueFactory(new PropertyValueFactory<>("modelCarcase"));
+        productWheels.setCellValueFactory(new PropertyValueFactory<>("modelWheels"));
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(MySocket.INSTANCE.getSock().getOutputStream(), true);
+            out.println("Продукты");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        updateTable();
+        productTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                btnDelete.setDisable(false);
+                btnEdit.setDisable(false);
+            } else {
+                btnEdit.setDisable(true);
+                btnDelete.setDisable(true);
+            }
+        });
     }
 }

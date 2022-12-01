@@ -10,10 +10,10 @@
    <children>
       <Button fx:id="btnExit" layoutX="266.0" layoutY="514.0" mnemonicParsing="false" onAction="#onBtnExit" prefHeight="26.0" prefWidth="148.0" text="Выход" />
       <Button fx:id="btnCreate" layoutX="14.0" layoutY="380.0" mnemonicParsing="false" onAction="#onBtnCreate" prefHeight="26.0" prefWidth="206.0" text="Спроектировать продукт" />
-      <Button fx:id="btnDelete" layoutX="14.0" layoutY="420.0" mnemonicParsing="false" onAction="#onBtnDelete" prefHeight="26.0" prefWidth="206.0" text="Удалить продукт" />
+      <Button fx:id="btnDelete" disable="true" layoutX="14.0" layoutY="420.0" mnemonicParsing="false" onAction="#onBtnDelete" prefHeight="26.0" prefWidth="206.0" text="Удалить продукт" />
       <Button fx:id="btnAllQuality" layoutX="465.0" layoutY="380.0" mnemonicParsing="false" onAction="#onBtnAllQuality" prefHeight="26.0" prefWidth="206.0" text="Общая оценка качества" />
       <Button fx:id="btnProductQuality" layoutX="465.0" layoutY="340.0" mnemonicParsing="false" onAction="#onBtnProductQuality" prefHeight="26.0" prefWidth="206.0" text="Оценка качества продукта" />
-      <Button fx:id="btnEdit" layoutX="14.0" layoutY="460.0" mnemonicParsing="false" onAction="#onBtnEdit" prefHeight="26.0" prefWidth="206.0" text="Редактировать продукт" />
+      <Button fx:id="btnEdit" disable="true" layoutX="14.0" layoutY="460.0" mnemonicParsing="false" onAction="#onBtnEdit" prefHeight="26.0" prefWidth="206.0" text="Редактировать продукт" />
       <Button fx:id="btnSaveTxt" layoutX="465.0" layoutY="420.0" mnemonicParsing="false" onAction="#onBtnSaveTxt" prefHeight="26.0" prefWidth="206.0" text="Сохранить данные продуктов" />
       <Button fx:id="btnLoadTxt" layoutX="465.0" layoutY="459.0" mnemonicParsing="false" onAction="#OnBtnLoadTxt" prefHeight="26.0" prefWidth="206.0" text="Загрузить посленее сохранение" />
       <Button fx:id="btnRefresh" layoutX="14.0" layoutY="340.0" mnemonicParsing="false" onAction="#onBtnRefresh" prefHeight="26.0" prefWidth="206.0" text="Добавить новых пользователей" />
