@@ -41,23 +41,26 @@ public class MainFrameController extends BaseController implements Initializable
     public Button btnToWheels;
     ObservableList<Product> productList = FXCollections.observableArrayList();
 
-    public void onBtnRefresh(ActionEvent actionEvent) {
-        nextWindow("RegView", btnRefresh, "Регистрация нвого пользователя");
-    }
-
     public void OnBtnLoadTxt(ActionEvent actionEvent) {
     }
 
     public void onBtnSaveTxt(ActionEvent actionEvent) {
     }
 
-    public void onBtnEdit(ActionEvent actionEvent) {
-    }
 
     public void onBtnProductQuality(ActionEvent actionEvent) {
     }
 
     public void onBtnAllQuality(ActionEvent actionEvent) {
+    }
+
+    public void onBtnEdit(ActionEvent actionEvent) {
+        BaseController.chosenID = String.valueOf(productTable.getSelectionModel().getSelectedItem().modelID);
+        nextWindow("UpdateProduct", btnEdit, "Изменение продукта");
+    }
+
+    public void onBtnRefresh(ActionEvent actionEvent) {
+        nextWindow("RegView", btnRefresh, "Регистрация нвого пользователя");
     }
 
     public void onBtnDelete(ActionEvent actionEvent) {

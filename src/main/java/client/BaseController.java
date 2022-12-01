@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.util.Objects;
 
 abstract public class BaseController {
+    public static String chosenID;
     void nextWindow(String view, Button button, String title) {
         Parent root;
         try {

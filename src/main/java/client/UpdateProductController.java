@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +14,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class CreatingController extends BaseController implements Initializable {
+public class UpdateProductController extends BaseController implements Initializable {
     public ComboBox<String> textFuel;
     public ComboBox<String> textBattery;
     public ComboBox<String> textCarcase;
@@ -21,9 +22,8 @@ public class CreatingController extends BaseController implements Initializable 
     public Button btnSubmit;
     public TextField textName;
     public Button btnBack;
-    public String answer = "added";
 
-    public void onBtnSubmit(ActionEvent actionEvent) throws IOException {
+    public void onBtnSubmit(ActionEvent actionEvent) throws IOException{
         if (Objects.equals(textFuel.getValue(), "") || Objects.equals(textBattery.getValue(), "") || Objects.equals(textCarcase.getValue(), "") || Objects.equals(textWheels.getValue(), "") || Objects.equals(textName.getText(), "")) {
             textName.setText("");
             textName.setPromptText("Все поля должны быть заполнены!");
@@ -33,12 +33,12 @@ public class CreatingController extends BaseController implements Initializable 
             String line;
             out = new PrintWriter(MySocket.INSTANCE.getSock().getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(MySocket.INSTANCE.getSock().getInputStream()));
-            out.println("Добавление" + "; " + textName.getText() + "; " + textFuel.getValue() + "; " + textBattery.getValue() + "; " + textCarcase.getValue() + "; " + textWheels.getValue());
+            out.println("Изменение" + "; " + textName.getText() + "; " + textFuel.getValue() + "; " + textBattery.getValue() + "; " + textCarcase.getValue() + "; " + textWheels.getValue() + "; " + String.valueOf(BaseController.chosenID));
             line = in.readLine();
-            if (Objects.equals(line, "added")) {
+            if (Objects.equals(line, "updated")) {
                 textName.setText("");
-                textName.setPromptText("Запись добавлена!");
-
+                textName.setPromptText("Запись обновлена!");
+                btnSubmit.setDisable(true);
             }
         }
 
@@ -84,3 +84,4 @@ public class CreatingController extends BaseController implements Initializable 
         }
     }
 }
+
