@@ -22,7 +22,6 @@ public class MainFrameController extends BaseController implements Initializable
     public Button btnExit;
     public Button btnCreate;
     public Button btnDelete;
-    public Button btnAllQuality;
     public Button btnProductQuality;
     public Button btnEdit;
     public Button btnSaveTxt;
@@ -49,9 +48,8 @@ public class MainFrameController extends BaseController implements Initializable
 
 
     public void onBtnProductQuality(ActionEvent actionEvent) {
-    }
-
-    public void onBtnAllQuality(ActionEvent actionEvent) {
+        BaseController.chosenID = String.valueOf(productTable.getSelectionModel().getSelectedItem().modelID);
+        nextWindow("ProductQualityView", btnProductQuality, "Отчет по уровню качества продукта");
     }
 
     public void onBtnEdit(ActionEvent actionEvent) {
@@ -126,9 +124,11 @@ public class MainFrameController extends BaseController implements Initializable
             if (newSelection != null) {
                 btnDelete.setDisable(false);
                 btnEdit.setDisable(false);
+                btnProductQuality.setDisable(false);
             } else {
                 btnEdit.setDisable(true);
                 btnDelete.setDisable(true);
+                btnProductQuality.setDisable(true);
             }
         });
     }

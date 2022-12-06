@@ -4,11 +4,11 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="465.0" prefWidth="697.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ProductQualityController">
+<AnchorPane prefHeight="452.0" prefWidth="697.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ProductQualityController">
    <children>
       <ListView fx:id="listResults" layoutX="14.0" layoutY="14.0" prefHeight="382.0" prefWidth="668.0" />
-      <Button fx:id="btnBack" layoutX="523.0" layoutY="413.0" mnemonicParsing="false" onAction="#onBtnBack" prefHeight="26.0" prefWidth="160.0" text="Назад" />
-      <Button fx:id="btnSaveResult" layoutX="14.0" layoutY="413.0" mnemonicParsing="false" onAction="#onBtnSaveResult" prefHeight="26.0" prefWidth="160.0" text="Сохранить результат" />
-      <Button fx:id="btnGraph" layoutX="202.0" layoutY="413.0" mnemonicParsing="false" onAction="#onBtnGraph" prefHeight="26.0" prefWidth="291.0" text="Получить графическое представление данных" />
+      <Button fx:id="btnBack" layoutX="598.0" layoutY="413.0" mnemonicParsing="false" onAction="#onBtnBack" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #48D1CC;" text="Вернуться" />
+      <Button fx:id="btnSaveResult" layoutX="14.0" layoutY="413.0" mnemonicParsing="false" onAction="#onBtnSaveResult" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: #00FF7F;" text="Сохранить результат" />
+      <Button fx:id="btnGraph" layoutX="304.0" layoutY="413.0" mnemonicParsing="false" onAction="#onBtnGraph" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: #00FF7F;" text="Получить графическое представление данных" />
    </children>
 </AnchorPane>
