@@ -9,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class AuthorizationController extends BaseController {
@@ -45,12 +43,12 @@ public class AuthorizationController extends BaseController {
                 textPassword.setText("");
                 textLogin.setPromptText("Не найден пользователь!");
             } else if (line.equals("1")) {
+                BaseController.ac_access = 1;
                 nextWindow("MainFrame", btnLogIn, "Главное окно");
             } else if (line.equals("2")) {
+                BaseController.ac_access = 2;
                 nextWindow("ManagerView", btnLogIn, "Главное окно");
             }
-
-
         }
     }
 }

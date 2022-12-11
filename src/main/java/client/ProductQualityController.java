@@ -19,7 +19,7 @@ public class ProductQualityController extends BaseController implements Initiali
     public Button btnGraph;
     public String product;
     public String[] parts = {"Топливная система\t", "Аккумулятор\t", "Кузов\t", "Колеса\t"};
-    public String[] params = {"Объем бака", "Давление в топливной рампе", "Пробег", "Электроёмкость", "Напряжение", "Пробег", "Толщина кузова", "Толщина стекол", "Пробег", "Давление в шинах", "Ширина шины", "Пробег"};
+    public String[] params = {"Объем бака", "Давление в топливной рампе", "Пробег (топ.сист.)", "Электроёмкость", "Напряжение", "Пробег(акк.)", "Толщина кузова", "Толщина стекол", "Пробег(кузов)", "Давление в шинах", "Ширина шины", "Пробег(колеса)"};
     public Button btnOnDirectory;
 
     public void onBtnBack(ActionEvent actionEvent) {
@@ -45,7 +45,7 @@ public class ProductQualityController extends BaseController implements Initiali
     }
 
     public void onBtnGraph(ActionEvent actionEvent) {
-
+        nextWindow("GraphView", btnGraph, "График");
     }
 
     public String getFormula(String detail, String base, String result) {
@@ -106,6 +106,7 @@ public class ProductQualityController extends BaseController implements Initiali
                 String[] formulas = getFormula(lines[i], lines[i + 4], lines[i + 8]).split("///");
                 for (int j = 0; j < 3; j++) {
                     listResults.getItems().add("\t" + params[count] + ":\t" + formulas[j]);
+                    BaseController.graphParams.add(params[count] + ":" + formulas[j].split(" ")[4]);
                     count++;
                 }
                 String[] prices = lines[i + 16].split("; ");

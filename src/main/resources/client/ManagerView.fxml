@@ -18,14 +18,13 @@
             <TableColumn fx:id="productWheels" minWidth="8.00006103515625" prefWidth="119.19989013671875" text="Колеса" />
          </columns>
       </TableView>
-      <Button fx:id="btnToFuel" layoutX="13.0" layoutY="350.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Топливные системы" />
-      <Button fx:id="btnToBattery" layoutX="13.0" layoutY="390.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Аккумуляторы" />
-      <Button fx:id="btnToCarcase" layoutX="13.0" layoutY="430.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Кузова" />
-      <Button fx:id="btnToWheels" layoutX="13.0" layoutY="469.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Колеса" />
+      <Button fx:id="btnToFuel" layoutX="13.0" layoutY="350.0" mnemonicParsing="false" onAction="#onBtnToFuel" prefHeight="26.0" prefWidth="206.0" text="Топливные системы" />
+      <Button fx:id="btnToBattery" layoutX="13.0" layoutY="390.0" mnemonicParsing="false" onAction="#onBtnToBattery" prefHeight="26.0" prefWidth="206.0" text="Аккумуляторы" />
+      <Button fx:id="btnToCarcase" layoutX="13.0" layoutY="430.0" mnemonicParsing="false" onAction="#onBtnOnCarcase" prefHeight="26.0" prefWidth="206.0" text="Кузова" />
+      <Button fx:id="btnToWheels" layoutX="13.0" layoutY="469.0" mnemonicParsing="false" onAction="#onBtnToWheels" prefHeight="26.0" prefWidth="206.0" text="Колеса" />
       <Button fx:id="btnExit" layoutX="461.0" layoutY="469.0" mnemonicParsing="false" onAction="#onBtnExit" prefHeight="26.0" prefWidth="206.0" text="Выход" />
-      <Button fx:id="btnSaveTxt" layoutX="461.0" layoutY="390.0" mnemonicParsing="false" onAction="#onBtnSaveTxt" prefHeight="26.0" prefWidth="206.0" text="Сохранить данные продуктов" />
-      <Button fx:id="btnLoadTxt" layoutX="461.0" layoutY="430.0" mnemonicParsing="false" onAction="#OnBtnLoadTxt" prefHeight="26.0" prefWidth="206.0" text="Загрузить посленее сохранение" />
-      <Button fx:id="btnProductQuality" layoutX="461.0" layoutY="350.0" mnemonicParsing="false" onAction="#onBtnProductQuality" prefHeight="26.0" prefWidth="206.0" text="Оценка качества продукта" />
+      <Button fx:id="btnSaveTxt" layoutX="461.0" layoutY="350.0" mnemonicParsing="false" onAction="#onBtnSaveTxt" prefHeight="26.0" prefWidth="206.0" text="Сохранить данные продуктов" />
+      <Button fx:id="btnLoadTxt" layoutX="461.0" layoutY="390.0" mnemonicParsing="false" onAction="#OnBtnLoadTxt" prefHeight="26.0" prefWidth="206.0" text="Загрузить посленее сохранение" />
       <Separator layoutX="-3.0" layoutY="338.0" prefHeight="3.0" prefWidth="682.0" />
       <Separator layoutX="234.0" layoutY="338.0" orientation="VERTICAL" prefHeight="170.0" prefWidth="6.0" />
       <Separator layoutX="447.0" layoutY="337.0" orientation="VERTICAL" prefHeight="169.0" prefWidth="6.0" />

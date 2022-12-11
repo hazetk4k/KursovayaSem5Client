@@ -8,10 +8,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 abstract public class BaseController {
     public static String chosenID;
+    public static String chosenName;
+    public static int ac_access;
+    public static String detail;
+
+    public static List<String> graphParams = new ArrayList<>();
+
+    public static String[] qualities;
+    public static String[] params;
     void nextWindow(String view, Button button, String title) {
         Parent root;
         try {

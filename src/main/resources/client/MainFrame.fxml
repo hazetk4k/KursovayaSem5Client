@@ -26,10 +26,10 @@
             <TableColumn fx:id="productWheels" minWidth="8.00006103515625" prefWidth="119.19989013671875" text="Колеса" />
         </columns>
       </TableView>
-      <Button fx:id="btnToFuel" layoutX="269.0" layoutY="340.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" text="Топливные системы" />
-      <Button fx:id="btnToBattery" layoutX="269.0" layoutY="380.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" text="Аккумуляторы" />
-      <Button fx:id="btnToCarcase" layoutX="269.0" layoutY="420.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" text="Кузова" />
-      <Button fx:id="btnToWheels" layoutX="269.0" layoutY="460.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" text="Колеса" />
+      <Button fx:id="btnToFuel" layoutX="269.0" layoutY="340.0" mnemonicParsing="false" onAction="#onBtnToFuel" prefHeight="26.0" prefWidth="148.0" text="Топливные системы" />
+      <Button fx:id="btnToBattery" layoutX="269.0" layoutY="380.0" mnemonicParsing="false" onAction="#OnBtnToBattery" prefHeight="26.0" prefWidth="148.0" text="Аккумуляторы" />
+      <Button fx:id="btnToCarcase" layoutX="269.0" layoutY="420.0" mnemonicParsing="false" onAction="#OnBtnToCarcase" prefHeight="26.0" prefWidth="148.0" text="Кузова" />
+      <Button fx:id="btnToWheels" layoutX="269.0" layoutY="460.0" mnemonicParsing="false" onAction="#OnBtnToWheels" prefHeight="26.0" prefWidth="148.0" text="Колеса" />
       <Separator layoutX="-8.0" layoutY="327.0" prefHeight="2.0" prefWidth="695.0" />
       <Separator layoutX="242.0" layoutY="327.0" orientation="VERTICAL" prefHeight="174.0" prefWidth="6.0" />
       <Separator layoutX="444.0" layoutY="327.0" orientation="VERTICAL" prefHeight="174.0" prefWidth="6.0" />

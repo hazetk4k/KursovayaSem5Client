@@ -10,13 +10,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class MainFrameController extends BaseController implements Initializable {
     public Button btnExit;
@@ -40,12 +38,40 @@ public class MainFrameController extends BaseController implements Initializable
     public Button btnToWheels;
     ObservableList<Product> productList = FXCollections.observableArrayList();
 
-    public void OnBtnLoadTxt(ActionEvent actionEvent) {
+    public void OnBtnLoadTxt(ActionEvent actionEvent) throws IOException {
+        ObservableList<Product> strList = FXCollections.observableArrayList();
+        FileReader fr = new FileReader("D:/уник/5 сем/псп/TkachukKursovayaClient/Products/Products.txt");
+        Scanner scan = new Scanner(fr);
+        while (scan.hasNextLine()) {
+            String str = scan.nextLine();
+            String[] thisStr = str.split("; ");
+            Product product = new Product(Integer.parseInt(thisStr[0]), thisStr[1], thisStr[2], thisStr[3], thisStr[4], thisStr[5]);
+            strList.add(product);
+            productTable.setItems(strList);
+        }
+        fr.close();
+        btnSaveTxt.setDisable(true);
+        btnProductQuality.setDisable(true);
+        btnLoadTxt.setDisable(true);
     }
-
     public void onBtnSaveTxt(ActionEvent actionEvent) {
+        try {
+            File f = new File("D:/уник/5 сем/псп/TkachukKursovayaClient/Products/Products.txt");
+            if (!f.exists()) {
+                f.createNewFile();
+            }
+            FileWriter fw = new FileWriter(f, false);
+            for (int i = 0; i < productList.size(); i++) {
+                fw.write(productList.get(i).getModelID() + "; " + productList.get(i).getModelName() + "; " +
+                        productList.get(i).getModelFuel() + "; " + productList.get(i).getModelBattery() + "; " +
+                        productList.get(i).getModelCarcase() + "; " + productList.get(i).getModelWheels() + "; \n");
+            }
+            fw.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        btnSaveTxt.setDisable(true);
     }
-
 
     public void onBtnProductQuality(ActionEvent actionEvent) {
         BaseController.chosenID = String.valueOf(productTable.getSelectionModel().getSelectedItem().modelID);
@@ -131,5 +157,25 @@ public class MainFrameController extends BaseController implements Initializable
                 btnProductQuality.setDisable(true);
             }
         });
+    }
+
+    public void onBtnToFuel(ActionEvent actionEvent) {
+        BaseController.detail = "fuel";
+        nextWindow("Detail",btnToFuel, "Модели топливной системы");
+    }
+
+    public void OnBtnToBattery(ActionEvent actionEvent) {
+        BaseController.detail = "battery";
+        nextWindow("Detail",btnToBattery, "Модели аккумулятора");
+    }
+
+    public void OnBtnToCarcase(ActionEvent actionEvent) {
+        BaseController.detail = "carcase";
+        nextWindow("Detail",btnToCarcase, "Модели кузова");
+    }
+
+    public void OnBtnToWheels(ActionEvent actionEvent) {
+        BaseController.detail = "wheels";
+        nextWindow("Detail",btnToWheels, "Модели колес");
     }
 }
